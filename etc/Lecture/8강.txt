@@ -1,0 +1,30 @@
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mis
+            match between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on
+             the client.
+
+ 위와 같은 에러가 뜨는 이유?
+
+
+0. 전제조건
+
+ ==> 클라이언트에서는 랜더링을 사용할 때 (CSR) 리액트를 사용하고
+ ==> 서버에서는 랜더링을 사용할 때 (SSR) 리액트를 사용한다.
+
+ 1. useLayoutEffect의 경우
+
+ 랜더링 => useLayoutEffect() => paint
+
+ 2. useEffect
+
+ 랜더링 => paint => useEffect
+
+ Next.js로 생성된 웹 페이지는 맨 처음 사용자가 방문 시 서버사이드 랜더링을 하는데
+ 따라서 서버 렌더링을 사용하는 경우라면 자바스크립트가 모두 다운로드될 때까지는
+ useLayoutEffect와 useEffect 어느 것도 실행되지 않는다.
+ 애초에 SSR에서의 랜더러는 리액트 코드에 대한 렌더를 담당하지 않는다.
+ 그런데 SSR이 진행되는 도중에 사용자가 리액트 컴포넌트를 클릭하게 되면 차후 진행되는 랜더링 (CSR) 상황에서의
+ 컴포넌트 작동과 다른 사용자 경험을 유발할 수 있다.
+
+
+ 이것이 서버에서 렌더링 되는 컴포넌트에서 useLayoutEffect가 사용되는 경우에 대해 React가 경고하는 이유임
+
