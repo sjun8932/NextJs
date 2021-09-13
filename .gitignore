@@ -1,2 +1,6 @@
 # idea folder
 .idea
+# node_module
+/prepare/front/node_modules
+# Next.js
+/prepare/front/.next/
