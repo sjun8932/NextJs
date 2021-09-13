@@ -1,0 +1,12 @@
+Next.js 안에는 기본적으로 webpack이 내장되어 있다.
+이 webpack은
+
+import 'antd/dist/antd.css' 임포트 문을 읽어
+antD의 css를 처리 styling을 해준다.
+
+Q. _app.js와 AppLayout.js의 차이는 무엇인가?
+
+=> 모든 페이지가 공통으로 공유할 컴포넌트를 담당하는 것이 _app.js
+
+=> 일부 컴포넌트 (특정 페이지)에서만 공통인 공통 레이아웃을 담당하는 것은 사용자가 임의로 생성한 레이아웃 ex) AppLayout.js
+
