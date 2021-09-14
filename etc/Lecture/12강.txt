@@ -1,0 +1,25 @@
+<Input> 이라는 컴포넌트에 <Input style={{ marginTop: 10 }} /> 와 같이
+인라인 스타일링으로 ... style 속성에 객체를 넣으면
+
+리렌더링이 일어날 때마다 ( ex) 웹 브라우저 새로고침 ) 객체가 다른 객체로 생성된 것처럼 인식 되어
+
+{ } !== { }
+
+리렌더링 후 바뀐 부분만 다시 그려줌 ( 객체형식으로 넣어주면 다른 객체로 인식 후 다시 그림 반복)
+
+따라서 styled 컴포넌트로 변수 형식으로 처리
+
+1.
+const SearchInput = styled(Input.Search)`
+  vertical-align: middle;
+`;
+
+
+2.
+const ButtonWrapper = styled.div`
+    margin-top: 10px;
+`;
+
+3.
+아니면 useMemo를 사용하자.
+const BgColor = useMemo(() => ({ backgroundColor: '#9B6DC6' }), []);

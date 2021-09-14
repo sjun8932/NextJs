@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import UserProfile from '../components/UserProfile';
 import LoginForm from "../components/LoginForm";
 
+
 const SearchInput = styled(Input.Search)`
     vertical-align: middle;
 `;
@@ -24,7 +25,7 @@ const AppLayout = ({children}) => {
                     <Link href="/profile"><a>프로필</a></Link>
                 </Menu.Item>
                 <Menu.Item key="search">
-                    <SearchInput enterButton style={{ verticalAlign: "middle" }}/>
+                    <SearchInput enterButton/>
                 </Menu.Item>
                 <Menu.Item key="signup">
                     <Link href="/signup"><a>회원가입</a></Link>
