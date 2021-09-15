@@ -1,0 +1,7 @@
+크롬 확장 프로그램 중에서
+
+react devtools
+redux devtools
+
+2개 설치
+
