@@ -23,3 +23,7 @@ const ButtonWrapper = styled.div`
 3.
 아니면 useMemo를 사용하자.
 const BgColor = useMemo(() => ({ backgroundColor: '#9B6DC6' }), []);
+
+antd 에서
+<Form> 컴포넌트의 onFinish 속성은 e.preventdefault 값이 적용되어 있어
+중복 적용하면 안된다.
