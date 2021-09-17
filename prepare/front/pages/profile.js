@@ -5,7 +5,7 @@ import NicknameEditForm from "../components/NicknameEditForm";
 import FollowingList from '../components/FollowingList';
 import FollowList from '../components/FollowList';
 
-const followingList = [{nickName: "재이"},{nickname: "윤"},{nickname: "세은"}]
+const followingList = [{nickName: "제이"},{nickname: "윤"},{nickname: "세은"}]
 
 const followerList = [{nickname: "시은"},{nickname: "아이사"},{nickname: "수민"}]
 

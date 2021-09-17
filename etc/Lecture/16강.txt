@@ -1,0 +1,9 @@
+동일한 hooks가 반복되거나 핸들러가 반복될 때
+커스텀 hook (useInput) 을 짜서 동일 코드의 반복을 피할 수가 있다.
+
+signup.js 를 다듬고 antd의 checkbox를 사용하였다.
+
+antd의 onFinish의 경우 e.preventdefault()를 내장하고 있다.
+
+to do...
+페이지 전체에 같은 폰트를 사용하는 방법
