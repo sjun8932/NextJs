@@ -1,0 +1,2 @@
+루트 리듀서 설정  + useState 들어가 있는 파일 Redux로 수정
+action , initialState 설정 , dispatch 붙이기 연습
