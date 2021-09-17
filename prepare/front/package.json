@@ -14,9 +14,11 @@
     "babel-plugin-styled-components": "^1.13.2",
     "caniuse-lite": "^1.0.30001257",
     "next": "^11.1.2",
+    "next-redux-wrapper": "^6.0.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "redux": "^4.1.1",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
