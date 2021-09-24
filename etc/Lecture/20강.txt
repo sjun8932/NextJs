@@ -1,0 +1,2 @@
+npm i redux-devtools-extension 을
+설치해서 브라우저의 redux devtools와의 연동을 진행해 보았다.
