@@ -1,0 +1,1 @@
+Ant 디자인의 EllipsisOutlined, HeartTwoTone, MessageOutlined, RetweetOutlined 컴포넌트를 이용 해보았다.
