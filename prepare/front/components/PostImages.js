@@ -24,7 +24,7 @@ const PostImages = ({ images }) => {
             <>
                 <img role="presentation" style={{ width: '50%' , display: "inline-block"}} src={images[0].src} alt={images[0].src} onClick={onZoom}/>
                 <img role="presentation" style={{ width: '50%' , display: "inline-block"}} src={images[1].src} alt={images[1].src} onClick={onZoom}/>
-                {showImagesZoom && <ImagesZoom images={images} onclose={onClose}/>}
+                {showImagesZoom && <ImagesZoom images={images} onClose={onClose}/>}
             </>
         )
     }
@@ -42,7 +42,7 @@ const PostImages = ({ images }) => {
                     {images.length -1}
                     개의 사진 더보기
                 </div>
-                {showImagesZoom && <ImagesZoom images={images} onclose={onClose}/>}
+                {showImagesZoom && <ImagesZoom images={images} onClose={onClose}/>}
             </div>
         </>
     )
