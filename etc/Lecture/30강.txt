@@ -1,0 +1,2 @@
+generator는 function다음에 *이 붙는데
+function 안에서 yield로 멈춤 지점을 만들어서 function.next(); 로 중단점까지 실행을 할 수 있다.
