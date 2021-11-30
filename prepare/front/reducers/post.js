@@ -5,7 +5,7 @@ export const initialState = {
             id: 1,
             nickname: '상준',
         },
-        content: '상준님의 첫번째 익스프레스',
+        content: '상준님의 첫번째 익스프레스 #해시태그 #익스프레스',
         Images: [{
             src: 'https://w.namu.la/s/f628b1c0a88aef60d88b6b6f28e68b1caf218c71266efdab326a949d0de83b8d08cf148c8912da21e414be0982bc52d0b7eb4bcd13b954ce643584a4dc34045400f97a1b1b26869a23869fb03b7010633a4de30dd121f580bc2e0d3002f3ef20',
         },{

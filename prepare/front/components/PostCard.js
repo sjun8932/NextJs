@@ -4,10 +4,11 @@ import {Avatar, Button, Card, Popover, List, Comment} from "antd";
 import {EllipsisOutlined, HeartTwoTone, MessageOutlined, RetweetOutlined} from "@ant-design/icons";
 import {useSelector} from "react-redux";
 import PostImages from "./PostImages";
-import CommentForm from "./CommentForm"
+import CommentForm from "./CommentForm";
+import PostCardContent from './PostCardContent';
 
 const PostCard = ({post}) => {
-
+    console.log(post);
     const [liked, setLiked] = useState(false);
     const [commentFormOpened , setCommentFormOpened ] = useState(false);
     const onToggleLike = useCallback(()=>{
@@ -45,7 +46,7 @@ const PostCard = ({post}) => {
                 <Card.Meta
                     avatar={<Avatar>{post.User.nickname[0]}</Avatar>}
                     title={post.User.nickname}
-                    description={post.content}
+                    description={<PostCardContent postData={post.content}/>}
                 />
             </Card>
             {commentFormOpened &&(
