@@ -1,0 +1,9 @@
+saga의 take의 경우 단점이 일회용이라.. 한번 실행되면 소멸되는데
+
+while(true) {
+    take(action)
+}
+
+과 같이 진행할 수 있지만 가독성이 좋지 않으므로
+걍 takeEvery를 쓰면 된다
+takeLatest , Throttle, debounce를 알아두길 바람~~ (제로초 블로그에 있음)
