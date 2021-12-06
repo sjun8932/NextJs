@@ -18,7 +18,6 @@ const CommentForm = ({ post }) => {
     },[addCommentDone]);
 
     const onsubmitComment = useCallback(()=>{
-        console.log(post.id, commentText);
         dispatch({
             type:ADD_COMMENT_REQUEST,
             data: {content: commentText , postId: post.id , userId: id}
@@ -28,8 +27,8 @@ const CommentForm = ({ post }) => {
         <Form onFinish={onsubmitComment}>
             <Form.Item style={{ position: 'relative' , margin: 0 }}>
                 <Input.TextArea value={commentText} onChange={onChangeCommentText} rows={4}/>
+                <Button style={{ position: 'absolute' , right: 0, bottom: -40, zIndex: 1 }} type="primary" htmlType="submit" loading={addCommentLoading}>삐약</Button>
             </Form.Item>
-            <Button style={{ position: 'absolute' , right: 0, bottom: -40, zIndex: 1 }} type="primary" htmlType="submit" loading={addCommentLoading}>삐약</Button>
         </Form>
     )
 }
