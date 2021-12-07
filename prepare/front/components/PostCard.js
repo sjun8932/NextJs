@@ -9,10 +9,13 @@ import PostCardContent from './PostCardContent';
 import {REMOVE_POST_REQUEST} from "../reducers/post";
 
 const PostCard = ({post}) => {
+
     const dispatch = useDispatch();
+    const id = useSelector((state) => state.user.me?.id);
     const { removePostLoading } = useSelector((state)=>state.post);
     const [liked, setLiked] = useState(false);
     const [commentFormOpened , setCommentFormOpened ] = useState(false);
+
     const onToggleLike = useCallback(()=>{
         setLiked((prev)=> !prev);
     },[]);
@@ -21,14 +24,14 @@ const PostCard = ({post}) => {
         setCommentFormOpened((prev)=>!prev);
     });
 
-    const onRemovePost = useCallback(()=>{
-        dispatch({
-            type:REMOVE_POST_REQUEST,
+    const onRemovePost = useCallback(() => {
+        return dispatch({
+            type: REMOVE_POST_REQUEST,
             data: post.id,
-        })
-    });
+        });
+    },[id]);
 
-    const id = useSelector((state) => state.user.me?.id);
+
     return (
         <div style={{ marginBottom: 20 }}>
             <Card
