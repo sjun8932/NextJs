@@ -1,4 +1,5 @@
 const express = require('express');
+const postRouter = require('./routes/post');
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.get('/', (req,res)=>{
 // app.patch => 부분 수정
 // app.options => 찔러보기
 // app.head => 헤더만 가져오기
+
+app.use('/post',postRouter);
 
 app.listen(3099,()=>{
     console.log('서버 실행 중');
