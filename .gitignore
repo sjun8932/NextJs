@@ -4,3 +4,4 @@
 /prepare/front/node_modules
 # Next.js
 /prepare/front/.next/
+/prepare/back/node_modules
