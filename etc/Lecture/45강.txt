@@ -1,0 +1,12 @@
+mysql2는 노드와 mysql을 서로 연결해주는 드라이버 역할을 한다.
+시퀄라이즈는 자바스크립트로 sql을 조작해주는 라이브러리
+시퀄라이즈 설치 후 npx sequelize init으로 기본 설정을 해준다.
+
+시퀄라이즈 설치 후 생기는 폴더 중에 models 안에 index.js 설정을 변경해준다
+(과거 버전의 설정이 많아서 그런 거임....)
+
+시퀄라이즈는 내부적으로 mysql2를 사용하는데
+const sequelize = new sequelize(config.database, config.username, config.password, config);
+이 구문을 통해
+
+시퀄라이즈가 노드에 mysql2를 이용해서 설정 파일 및 데이터를 보내준다.
