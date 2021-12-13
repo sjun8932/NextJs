@@ -2,9 +2,9 @@
   "name": "node-back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app"
   },
   "author": "SANGJUN",
   "license": "ISC",
@@ -13,5 +13,8 @@
     "mysql2": "^2.3.3",
     "sequelize": "^6.12.0-beta.1",
     "sequelize-cli": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
