@@ -3,11 +3,15 @@ const cors = require('cors')
 const postRouter = require('./routes/post');
 const userRouter = require('./routes/user')
 const db = require('./models');
+const passportConfig = require('./passport')
+
 const app = express();
 
 db.sequelize.sync()
     .then(()=>{console.log('db 연결 성공했따')})
     .catch(console.err);
+
+passportConfig(); // app.js에서 passportConfig를 연결해준다고 보면 된다.
 
 app.use(cors({
     origin: '*',

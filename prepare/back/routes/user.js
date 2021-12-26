@@ -1,13 +1,33 @@
 const express = require('express');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const passport = require('passport');
 const { User } = require('../models');
 
 const router = express.Router();
 
+//POST/user/login
+router.post('/login', (req,res,next)=>{
+    passport.authenticate('local',(err,user,info)=>{
+        if(err){
+            console.error(err);
+            return next(err);
+        }
+        if(info){ // 다시 한번 말하지만 info는 클라이언트 에러 부분
+            return res.status(401).send(info.reason); //403은 금지 401은 허가되지 않음을 의미
+        }
+        return req.login(user,async (loginErr) => {
+            if(loginErr){
+                console.error(loginErr);
+                return next(loginErr);
+            }
+            return res.json(user);
+        });
+    })(req,res,next); // 미들웨어 확장법....
+});
+
 //POST /user/
 router.post('/' , async(req,res,next) => {
     try{
-
         const exUser = await User.findOne({
             where: {
                 email: req.body.email
