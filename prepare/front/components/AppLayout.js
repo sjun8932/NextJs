@@ -27,7 +27,7 @@ const Global = createGlobalStyle`
     }
 `;
 
-const AppLayout = ({children}) => {
+const AppLayout = function APL({children}) {
 
     const {me} = useSelector((state)=>state.user);
 

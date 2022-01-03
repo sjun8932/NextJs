@@ -1,15 +1,20 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+const dotenv = require('dotenv')
 const postRouter = require('./routes/post');
 const userRouter = require('./routes/user')
 const db = require('./models');
 const passportConfig = require('./passport')
 
+dotenv.config();
 const app = express();
 
 db.sequelize.sync()
     .then(()=>{console.log('db 연결 성공했따')})
-    .catch(console.err);
+    .catch(console.error);
 
 passportConfig(); // app.js에서 passportConfig를 연결해준다고 보면 된다.
 
@@ -19,6 +24,14 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
+app.use(cookieParser('junsecret'));
+app.use(session({
+    saveUninitialized: false,
+    resave:false,
+    secret:process.env.COOKIE_SECRET,
+}));
+app.use(passport.initialize()); // 미들웨어 작업 1
+app.use(passport.session()); // 미들웨어 작업 2
 
 app.get('/api/posts', (req,res) => {
     res.json([

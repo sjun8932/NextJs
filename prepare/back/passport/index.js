@@ -1,12 +1,21 @@
 const passport = require('passport');
 const local = require('./local');
-module.exports = () => {
-    passport.serializeUser(() => {
+const {User} = require('../models')
 
+module.exports = () => {
+    passport.serializeUser((user,done) => {
+        done(null,user.id);
     });
 
-    passport.deserializeUser(()=>{
-
+    passport.deserializeUser(async(id,done)=>{
+        try{
+            const user = await User.findOne({ where: {id}});
+            done(null,user); // req.user
+        }
+        catch(err){
+            console.error(err);
+            done(err);
+        }
     });
 
     local(); // local.js의 module.exports가 실행되는 코드이다...
