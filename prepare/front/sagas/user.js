@@ -88,6 +88,7 @@ function* logOut() {
             type: LOG_OUT_SUCCESS,
         });
     } catch(err){
+        console.error(err);
         yield put({
             type: LOG_OUT_FAILURE,
             error: err.response.data,

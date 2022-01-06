@@ -6,38 +6,41 @@ const {isLoggedIn,isNotLoggedIn} = require('./middlewares');
 const router = express.Router();
 
 //POST/user/login
-router.post('/login',isNotLoggedIn ,(req,res,next)=>{
-    passport.authenticate('local',(err,user,info)=>{
-        if(err){
+router.post('/login', isNotLoggedIn, (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (err) {
             console.error(err);
             return next(err);
         }
-        if(info){ // 다시 한번 말하지만 info는 클라이언트 에러 부분
-            return res.status(401).send(info.reason); //403은 금지 401은 허가되지 않음을 의미
+        if (info) {
+            return res.status(401).send(info.reason);
         }
-        return req.login(user,async (loginErr) => {
-            if(loginErr){
+        return req.login(user, async (loginErr) => {
+            if (loginErr) {
                 console.error(loginErr);
                 return next(loginErr);
             }
             const fullUserWithoutPassword = await User.findOne({
-                where:{id:user.id},
-                attributes:{
+                where: { id: user.id },
+                attributes: {
                     exclude: ['password']
                 },
                 include: [{
                     model: Post,
-                },{
+                    attributes: ['id'],
+                }, {
                     model: User,
                     as: 'Followings',
-                },{
+                    attributes: ['id'],
+                }, {
                     model: User,
                     as: 'Followers',
+                    attributes: ['id'],
                 }]
-            });
+            })
             return res.status(200).json(fullUserWithoutPassword);
         });
-    })(req,res,next); // 미들웨어 확장법....
+    })(req, res, next);
 });
 
 //POST /user/
@@ -65,10 +68,10 @@ router.post('/' , isNotLoggedIn, async(req,res,next) => {
     }
 });
 
-router.post('/logout', isLoggedIn ,(req,res,next)=>{
+router.post('/logout', isLoggedIn ,(req,res)=>{
     req.logout();
     req.session.destroy();
     res.send('ok')
-})
+});
 
 module.exports = router;
